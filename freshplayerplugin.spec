@@ -1,6 +1,6 @@
 Name:           freshplayerplugin
 Version:        0.2.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        PPAPI-host NPAPI-plugin adapter
 
 License:        MIT
@@ -35,6 +35,8 @@ for browser.
 
 %prep
 %setup -q
+#Correct search path
+sed -i -e "s;/opt/google/chrome/PepperFlash/libpepflashplayer.so;%{_libdir}/chromium/PepperFlash/libpepflashplayer.so;" data/freshwrapper.conf.example
 
 
 %build
@@ -45,6 +47,7 @@ make %{?_smp_mflags}
 
 %install
 install -Dm 755 build/libfreshwrapper-pepperflash.so %{buildroot}%{_libdir}/mozilla/plugins/libfreshwrapper-pepperflash.so
+install -Dm 644 data/freshwrapper.conf.example %{buildroot}%{_sysconfdir}/freshwrapper.conf
 
 %post -p /sbin/ldconfig
 
@@ -53,8 +56,12 @@ install -Dm 755 build/libfreshwrapper-pepperflash.so %{buildroot}%{_libdir}/mozi
 %files
 %doc COPYING LICENSE.MIT README.md
 %{_libdir}/mozilla/plugins/libfreshwrapper-pepperflash.so
+%{_sysconfdir}/freshwrapper.conf
 
 
 %changelog
+* Fri Jan 23 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.2.2-2
+- Add freshwrapper.conf with path to libpepflashplayer.so
+
 * Fri Jan 16 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.2.2-1
 - Initial release
