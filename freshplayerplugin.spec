@@ -1,6 +1,6 @@
 Name:           freshplayerplugin
-Version:        0.2.2
-Release:        2%{?dist}
+Version:        0.2.3
+Release:        1%{?dist}
 Summary:        PPAPI-host NPAPI-plugin adapter
 
 License:        MIT
@@ -60,6 +60,9 @@ install -Dm 644 data/freshwrapper.conf.example %{buildroot}%{_sysconfdir}/freshw
 
 
 %changelog
+* Mon Feb 16 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.2.3-1
+- Update to 0.2.3
+
 * Fri Jan 23 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.2.2-2
 - Add freshwrapper.conf with path to libpepflashplayer.so
 
