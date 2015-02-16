@@ -22,6 +22,8 @@ BuildRequires:  mesa-libEGL-devel
 BuildRequires:  mesa-libGLES-devel
 BuildRequires:  uriparser-devel
 BuildRequires:  ragel
+BuildRequires:  openssl-devel
+BuildRequires:  pulseaudio-libs-devel
 
 %description
 For various reasons Firefox developers are not interested now in implementing
