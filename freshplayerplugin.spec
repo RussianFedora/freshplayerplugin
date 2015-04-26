@@ -1,5 +1,5 @@
 Name:           freshplayerplugin
-Version:        0.2.3
+Version:        0.2.4
 Release:        1%{?dist}
 Summary:        PPAPI-host NPAPI-plugin adapter
 
@@ -24,6 +24,7 @@ BuildRequires:  uriparser-devel
 BuildRequires:  ragel
 BuildRequires:  openssl-devel
 BuildRequires:  pulseaudio-libs-devel
+BuildRequires:  chrpath
 
 %description
 For various reasons Firefox developers are not interested now in implementing
@@ -50,18 +51,22 @@ make %{?_smp_mflags}
 %install
 install -Dm 755 build/libfreshwrapper-pepperflash.so %{buildroot}%{_libdir}/mozilla/plugins/libfreshwrapper-pepperflash.so
 install -Dm 644 data/freshwrapper.conf.example %{buildroot}%{_sysconfdir}/freshwrapper.conf
+find %{buildroot} -name "*" -exec chrpath --delete {} \; 2>/dev/null
 
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
 
 %files
-%doc COPYING LICENSE.MIT README.md
+%doc COPYING LICENSE README.md
 %{_libdir}/mozilla/plugins/libfreshwrapper-pepperflash.so
 %{_sysconfdir}/freshwrapper.conf
 
 
 %changelog
+* Sun Apr 26 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.2.4-1
+- Update to 0.2.4
+
 * Mon Feb 16 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.2.3-1
 - Update to 0.2.3
 
