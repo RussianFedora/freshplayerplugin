@@ -25,6 +25,8 @@ BuildRequires:  ragel
 BuildRequires:  openssl-devel
 BuildRequires:  pulseaudio-libs-devel
 BuildRequires:  chrpath
+BuildRequires:  libavdevice
+BuildRequires:  libv4l-devel
 
 %description
 For various reasons Firefox developers are not interested now in implementing
