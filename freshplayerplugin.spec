@@ -28,6 +28,8 @@ BuildRequires:  chrpath
 BuildRequires:  libavdevice
 BuildRequires:  libv4l-devel
 BuildRequires:  ffmpeg-devel
+BuildRequires:  libva-devel
+BuildRequires:  libvdpau-devel
 
 %description
 For various reasons Firefox developers are not interested now in implementing
