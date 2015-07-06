@@ -1,11 +1,11 @@
 Name:           freshplayerplugin
-Version:        0.3.0
+Version:        0.3.1
 Release:        1%{?dist}
 Summary:        PPAPI-host NPAPI-plugin adapter
 
 License:        MIT
 URL:            https://github.com/i-rinat/freshplayerplugin
-Source0:        https://github.com/i-rinat/%{name}/archive/v%{version}.tar.gz
+Source0:        https://github.com/i-rinat/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  cmake
 BuildRequires:  pkgconfig
@@ -66,6 +66,9 @@ find %{buildroot} -name "*" -exec chrpath --delete {} \; 2>/dev/null
 
 
 %changelog
+* Mon Jul 06 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.1-1
+- Update to 0.3.1
+
 * Thu Jun 11 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.0-1
 - Update to 0.3.0
 
