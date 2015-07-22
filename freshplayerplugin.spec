@@ -1,11 +1,15 @@
+%global gitcommit_full 68844111f8a4ef81bfecfc16b055c38af29f770d
+%global gitcommit %(c=%{gitcommit_full}; echo ${c:0:7})
+%global date 20150719
+
 Name:           freshplayerplugin
 Version:        0.3.1
-Release:        1%{?dist}
+Release:        1.%{date}git%{gitcommit}%{dist}
 Summary:        PPAPI-host NPAPI-plugin adapter
 
 License:        MIT
 URL:            https://github.com/i-rinat/freshplayerplugin
-Source0:        https://github.com/i-rinat/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/i-rinat/%{name}/tarball/%{gitcommit_full}
 
 BuildRequires:  cmake
 BuildRequires:  pkgconfig
@@ -42,7 +46,7 @@ adapter which will look like browser to PPAPI plugin and look like NPAPI plugin
 for browser.
 
 %prep
-%setup -q
+%setup -q -n i-rinat-%{name}-%{gitcommit}
 #Correct search path
 sed -i -e "s;/opt/google/chrome/PepperFlash/libpepflashplayer.so;%{_libdir}/chromium/PepperFlash/libpepflashplayer.so;" data/freshwrapper.conf.example
 
@@ -69,6 +73,9 @@ find %{buildroot} -name "*" -exec chrpath --delete {} \; 2>/dev/null
 
 
 %changelog
+* Wed Jul 22 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.1-1.20150719git6884411
+- Update to master git
+
 * Mon Jul 06 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.1-1
 - Update to 0.3.1
 
