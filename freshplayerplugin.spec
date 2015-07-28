@@ -1,6 +1,6 @@
-%global gitcommit_full 68844111f8a4ef81bfecfc16b055c38af29f770d
+%global gitcommit_full 491b5b47c742b56105a18519420f0ed58bf36ac9
 %global gitcommit %(c=%{gitcommit_full}; echo ${c:0:7})
-%global date 20150719
+%global date 20150728
 
 Name:           freshplayerplugin
 Version:        0.3.1
@@ -34,6 +34,8 @@ BuildRequires:  libv4l-devel
 BuildRequires:  ffmpeg-devel
 BuildRequires:  libva-devel
 BuildRequires:  libvdpau-devel
+BuildRequires:  soxr-devel
+BuildRequires:  libdrm-devel
 
 %description
 For various reasons Firefox developers are not interested now in implementing
@@ -73,6 +75,9 @@ find %{buildroot} -name "*" -exec chrpath --delete {} \; 2>/dev/null
 
 
 %changelog
+* Tue Jul 28 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.1-1.20150728git491b5b4
+- Update to last git
+
 * Wed Jul 22 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.1-1.20150719git6884411
 - Update to master git
 
