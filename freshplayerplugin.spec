@@ -65,7 +65,7 @@ find %{buildroot} -name "*" -exec chrpath --delete {} \; 2>/dev/null
 %files
 %doc COPYING LICENSE README.md
 %{_libdir}/mozilla/plugins/libfreshwrapper-pepperflash.so
-%{_sysconfdir}/freshwrapper.conf
+%config %{_sysconfdir}/freshwrapper.conf
 
 
 %changelog
