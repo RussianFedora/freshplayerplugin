@@ -72,7 +72,7 @@ find %{buildroot} -name "*" -exec chrpath --delete {} \; 2>/dev/null
 
 
 %changelog
-* Wed Apr 13 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.5-1
+* Wed Apr 13 2016 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.5-1
 - Update to 0.3.5
 
 * Mon Dec 21 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.4-1
