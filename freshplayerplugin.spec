@@ -1,5 +1,5 @@
 Name:           freshplayerplugin
-Version:        0.3.4
+Version:        0.3.5
 Release:        1%{?dist}
 Summary:        PPAPI-host NPAPI-plugin adapter
 
@@ -48,9 +48,11 @@ sed -i -e "s;/opt/google/chrome/PepperFlash/libpepflashplayer.so;%{_libdir}/chro
 
 
 %build
-mkdir build && cd build
-%cmake ..
-make %{?_smp_mflags}
+mkdir build
+pushd build
+    %cmake ..
+    %make_build
+popd
 
 
 %install
@@ -63,12 +65,16 @@ find %{buildroot} -name "*" -exec chrpath --delete {} \; 2>/dev/null
 %postun -p /sbin/ldconfig
 
 %files
-%doc COPYING LICENSE README.md
+%doc COPYING README.md
+%license LICENSE
 %{_libdir}/mozilla/plugins/libfreshwrapper-flashplayer.so
 %config %{_sysconfdir}/freshwrapper.conf
 
 
 %changelog
+* Wed Apr 13 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.5-1
+- Update to 0.3.5
+
 * Mon Dec 21 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.4-1
 - Update to 0.3.4
 
