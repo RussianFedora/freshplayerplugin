@@ -9,27 +9,28 @@ Source0:        https://github.com/i-rinat/%{name}/archive/v%{version}/%{name}-%
 
 BuildRequires:  cmake
 BuildRequires:  pkgconfig
-BuildRequires:  alsa-lib-devel
-BuildRequires:  cairo-devel
-BuildRequires:  freetype-devel
-BuildRequires:  glib2-devel
-BuildRequires:  gtk2-devel
-BuildRequires:  libconfig-devel
-BuildRequires:  libevent-devel
-BuildRequires:  libX11-devel
-BuildRequires:  libXinerama-devel
-BuildRequires:  mesa-libEGL-devel
-BuildRequires:  mesa-libGLES-devel
-BuildRequires:  uriparser-devel
+BuildRequires:  pkgconfig(alsa)
+BuildRequires:  pkgconfig(cairo)
+BuildRequires:  pkgconfig(freetype2)
+BuildRequires:  pkgconfig(glib-2.0)
+BuildRequires:  pkgconfig(gtk+-2.0)
+BuildRequires:  pkgconfig(libconfig)
+BuildRequires:  pkgconfig(libevent)
+BuildRequires:  pkgconfig(x11)
+BuildRequires:  pkgconfig(xinerama)
+BuildRequires:  pkgconfig(egl)
+BuildRequires:  pkgconfig(glesv2)
+BuildRequires:  pkgconfig(liburiparser)
 BuildRequires:  ragel
-BuildRequires:  openssl-devel
-BuildRequires:  pulseaudio-libs-devel
+BuildRequires:  pkgconfig(openssl)
+BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  chrpath
 BuildRequires:  libavdevice
-BuildRequires:  libv4l-devel
-BuildRequires:  ffmpeg-devel
-BuildRequires:  libva-devel
-BuildRequires:  libvdpau-devel
+BuildRequires:  pkgconfig(libv4l2)
+BuildRequires:  pkgconfig(libavcodec)
+BuildRequires:  pkgconfig(libva)
+BuildRequires:  pkgconfig(vdpau)
+BuildRequires:  pkgconfig(icu-i18n)
 
 %description
 For various reasons Firefox developers are not interested now in implementing
