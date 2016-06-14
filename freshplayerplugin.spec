@@ -1,6 +1,6 @@
 Name:           freshplayerplugin
 Version:        0.3.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        PPAPI-host NPAPI-plugin adapter
 
 License:        MIT
@@ -73,6 +73,9 @@ find %{buildroot} -name "*" -exec chrpath --delete {} \; 2>/dev/null
 
 
 %changelog
+* Tue Jun 14 2016 Arkady L. Shane <ashejn@russianfedora.pro> - 0.3.5-2.R
+- rebuilt against new ffmpeg
+
 * Wed Apr 13 2016 Vasiliy N. Glazov <vascom2@gmail.com> 0.3.5-1
 - Update to 0.3.5
 
